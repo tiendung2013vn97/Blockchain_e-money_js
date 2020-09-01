@@ -1,0 +1,97 @@
+.btn-go-list{
+    img{
+        width: 40px;
+        height: 40px;
+    }
+
+    margin-right: 45px !important;
+    float: right;
+    position: fixed !important;
+    top:80px;
+    right:0;
+    
+    
+}
+
+.vote-detail-container{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+
+
+    .row{
+        min-height: 40px;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        
+        .row-content{
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+    }
+    .option-container{
+        text-align: left;
+        .title{
+            text-align: center;
+        }
+    }
+
+    .voted-people{
+        font-size: 14px;
+        font-style: italic;
+    }
+
+    
+ 
+        textarea{
+            max-height: 100px !important;
+            overflow: auto  !important;
+        }
+
+    
+    
+
+    .chart{
+        height: 10px;
+        background-color: green;
+        display: inline-block;
+    }
+    .title{
+        font-size: 13px;
+        font-weight: 500;
+        color: white;
+        background-color: rgb(91, 91, 91);
+        border-top-right-radius: 5px;
+        padding-top: 5px;
+        padding-bottom: 8px;
+        height: 33px;
+    }
+
+    .img-host{
+        width: 200px;
+        color:rgb(35, 174, 35)
+    }
+
+    .host-container{
+        width: 90%;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 500;
+   
+        .host-content{
+            width: 100%;
+            padding-left: 15px;
+            text-decoration: underline;
+            .label{
+                font-size: 10px;
+                display: inline-block;
+                min-width: 40px;
+                font-weight: 400;
+                color:grey;
+                
+            }
+        }
+        
+    }
+}

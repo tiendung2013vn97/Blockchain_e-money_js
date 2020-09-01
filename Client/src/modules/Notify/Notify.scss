@@ -1,0 +1,92 @@
+.notify-dialog{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 1, 0.8);
+    z-index: 99999;
+    font-family: 'Opens Sans';
+    top:0px;
+  
+  
+  }
+  .stop-scrolling{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  
+  }
+  .main-dialog{
+    position: absolute;
+    left: 50%;
+    min-width: 300px;
+    height: max-content;
+    border-radius: 2px;
+    top:200px;
+    background: white;
+    transform: translate(-50%,0);
+      -webkit-animation: moveTopDown 0.4s ; 
+    animation: moveTopDown 0.4s ;
+     padding: 10px 20px;
+  }
+  
+  
+  @-webkit-keyframes moveTopDown {
+    from {top: 0px;}
+    to {top: 200px;}
+  }
+  
+  @keyframes moveTopDown {
+    from {top: 0px;}
+    to {top: 200px;}
+  }
+  
+  .main-dialog img{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top:-35px;
+    left:50%;
+    transform: translate(-50%,0);
+  }
+  
+  .main-dialog .title-green{
+    font-size: 2.5rem;
+    width: 100%;
+    text-align: center;
+    color: green;
+  }
+  
+  .main-dialog .title-red{
+    font-size: 2.5rem;
+    width: 100%;
+    text-align: center;
+    color: red;
+  }
+  
+  .main-dialog .message-content{
+    padding: 10px 20px;
+    text-align:center;
+  }
+  
+  .main-dialog button{
+    width: 100%;
+    height: 40px;
+    border-radius:5px;
+    color:white;
+  }
+  
+  .main-dialog .btn-green{
+    background-color: #4CAF50;
+  }
+  .main-dialog .btn-green:hover{
+    cursor: pointer;
+   background-color: green;
+  }
+  .main-dialog .btn-red{
+    background-color: #F9756B;
+  }
+  .main-dialog .btn-red:hover{
+    cursor: pointer;
+   background-color: #F44336;
+  }
+  

@@ -1,0 +1,12 @@
+#name-icon{
+    background-color: #FF5722;
+    float: right;
+    margin-right: 60px;
+    &:hover{
+        cursor: pointer;
+    }
+    position: fixed;
+    top:20px;
+    right:0;
+}
+
