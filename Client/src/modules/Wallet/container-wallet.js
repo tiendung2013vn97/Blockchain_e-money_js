@@ -21,7 +21,8 @@ class HomeContainer extends Component {
 
         let user = localStorage.getItem("user")
         if (user) {
-            this.getBalance(JSON.parse(user).userId)
+            this.getBalance()
+            this.getHistory()
         }
 
     }
@@ -41,7 +42,6 @@ class HomeContainer extends Component {
 
     getBalance() {
         let userId = JSON.parse(localStorage.getItem("user")).userId
-        this.props.pending(true)
         const api = axios.create({ baseURL: config.URL });
         api
             .get("api/wallet/" + encodeURIComponent(userId))
@@ -54,24 +54,20 @@ class HomeContainer extends Component {
                             break;
                         }
                     }
-                    this.props.pending(false)
                     return;
                 }
 
 
                 this.props.updateBalance(res.data.result);
 
-
             })
             .catch(err => {
-                this.props.pending(false)
                 this.props.showAlertNotify("An error has happened when get balance:\n" + err);
             });
     }
 
     getHistory() {
         let userId = JSON.parse(localStorage.getItem("user")).userId
-        this.props.pending(true)
         const api = axios.create({ baseURL: config.URL });
         api
             .get("api/wallet/history/" + encodeURIComponent(userId))
@@ -84,17 +80,14 @@ class HomeContainer extends Component {
                             break;
                         }
                     }
-                    this.props.pending(false)
                     return;
                 }
 
 
                 this.props.updateHistory(res.data.result);
 
-
             })
             .catch(err => {
-                this.props.pending(false)
                 this.props.showAlertNotify("An error has happened when get history:\n" + err);
             });
     }
@@ -120,7 +113,7 @@ class HomeContainer extends Component {
                     return;
                 }
 
-
+                this.props.pending(false)
                 this.props.showSuccessNotify("Send money successfully!")
             })
             .catch(err => {

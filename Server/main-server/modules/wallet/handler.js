@@ -10,6 +10,11 @@ const sendMoney = async (userId, privateKey, money, to) => {
         return Promise.reject(`UserId ${userId} doesn't exist!`)
     }
 
+    let toUser = await userHandler.getUser(to)
+    if (!toUser) {
+        return Promise.reject(`UserId ${to} doesn't exist!`)
+    }
+
     if (!userHandler.isMatchPrivatePublicKey(privateKey, user.publicKey)) {
         return Promise.reject(`Private key is wrong. Please try again!`)
     }
@@ -33,7 +38,7 @@ const sendMoney = async (userId, privateKey, money, to) => {
     return Promise.resolve("success")
 }
 
-const calBalance = async (userId) => {
+const calBalance = (userId) => {
     let blocks = blockChain.get()
     let balance = 100;
     blocks.forEach((block, index) => {
@@ -56,8 +61,9 @@ const getHistory = async (userId) => {
     blocks.forEach((block, index) => {
         if (!index) return
         let decodeData = jwt.decode(block.data.encodeData)
-        if ((decodeData.user.to == userId || decodeData.user.userId == userId) && decodeData.type == "SEND_MONEY") {
-            result.push(decodeData)
+        if ((decodeData.to == userId || decodeData.user.userId == userId) && decodeData.type == "SEND_MONEY") {
+
+            result.push({ ...decodeData, hash: block.hash, index: block.index, timestamp: block.timestamp })
         }
     })
     return result

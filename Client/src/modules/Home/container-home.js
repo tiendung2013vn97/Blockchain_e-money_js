@@ -60,9 +60,10 @@ class HomeContainer extends Component {
                 let user = res.data.result.user;
                 this.props.updateUser(user);
                 localStorage.setItem("user", JSON.stringify(user));
+                localStorage.setItem("privateKey", userLogin.privateKey)
                 this.props.pending(false)
                 this.child.current.clearFormLogin()
-                this.props.history.push("/votes");
+                this.props.history.push("/wallet");
 
             })
             .catch(err => {
