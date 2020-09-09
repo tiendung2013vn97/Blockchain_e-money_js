@@ -8,9 +8,9 @@ import { yellow } from '@material-ui/core/colors';
 import "./Home.scss"
 import VoteChain from "../../assets/imgs/votechain.png"
 import Carousel from 'react-material-ui-carousel'
-import Slide1 from "../../assets/imgs/slide1.jpg"
-import Slide2 from "../../assets/imgs/slide2.jpg"
-import Slide3 from "../../assets/imgs/slide3.jpg"
+import Slide1 from "../../assets/imgs/slide-1.png"
+import Slide2 from "../../assets/imgs/slide-2.png"
+import Slide3 from "../../assets/imgs/slide-3.jpg"
 import ReactModal from "react-modal"
 
 const loginStyles = {
@@ -55,7 +55,7 @@ class Home extends Component {
     this.handleCreateAccount = this.handleCreateAccount.bind(this)
     this.handleGenderChange = this.handleGenderChange.bind(this)
 
-  
+
   }
 
 
@@ -107,7 +107,7 @@ class Home extends Component {
   //render
   render() {
     var items = [
-      Slide1, Slide2, Slide3
+      Slide2, Slide3, Slide1
     ]
     return (
       <div id="home">
@@ -143,12 +143,12 @@ class Home extends Component {
         <Grid container style={{ fontSize: "18px", marginTop: 50, textAlign: "left", paddingLeft: 100 }}>
           <Grid item xs={3}>
             <h1 style={{ fontStyle: "italic" }}>
-              Voting Network
+              Wallet Online
             </h1>
             <br />
             <div>
-              The network helps you <b>vote</b>.
-              <br />
+              The network helps you <b>keep <br /> and exchange money</b>.
+              <br /><br />
               <b>Trustworthy </b>and <b>public</b> with everyone!
             </div>
 

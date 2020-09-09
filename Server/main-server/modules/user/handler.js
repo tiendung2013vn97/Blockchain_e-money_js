@@ -34,7 +34,7 @@ const createUser = async (user) => {
 
         var pair = keypair();
         let data = {
-            encodeData: jwt.sign({ user, type: "INIT_USER" }, pair.private, { algorithm: 'RS256' }),
+            encodeData: jwt.sign({ user, type: "INIT_USER", balance: 100 }, pair.private, { algorithm: 'RS256' }),
             publicKey: pair.public
         }
 
@@ -63,7 +63,7 @@ const login = async (user) => {
         }
 
         let userRes = getUser(user.userId)
-        return Promise.resolve({user: userRes })
+        return Promise.resolve({ user: userRes })
     } catch (error) {
         console.log(error)
         return Promise.reject(error)
@@ -121,8 +121,8 @@ const waitAddUser = (userId) => {
 const getUser = (userId) => {
     const blocks = blockChain.get()
     let user = null
-    blocks.forEach((block,index) => {
-        if(!index) return
+    blocks.forEach((block, index) => {
+        if (!index) return
         let decodeData = jwt.decode(block.data.encodeData)
         if (decodeData && decodeData.user.userId == userId && decodeData.type == "INIT_USER") {
             user = decodeData.user

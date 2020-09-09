@@ -18,8 +18,8 @@ const WORKER1_HOST = "localhost",
     WORKER2_PORT = 3003;
 
 console.log("INFO: Connecting to peers!")
-p2p.connectToPeer(WORKER1_HOST, WORKER1_PORT)
-p2p.connectToPeer(WORKER2_HOST, WORKER2_PORT)
+// p2p.connectToPeer(WORKER1_HOST, WORKER1_PORT)
+// p2p.connectToPeer(WORKER2_HOST, WORKER2_PORT)
 
 
 const server = http.createServer(app)
