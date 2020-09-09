@@ -10,7 +10,7 @@ app.use(bodyParser())
 app.use(express.urlencoded())
 
 app.use("/api/user", require("./modules/user/router"))
-app.use("/api/votes", require("./modules/vote/router"))
+app.use("/api/wallet", require("./modules/wallet/router"))
 
 const WORKER1_HOST = "localhost",
     WORKER2_HOST = "localhost",
