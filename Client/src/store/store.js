@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux'
 import HomeReducer from '../modules/Home/reducer-home'
 import notifyReducer from '../modules/Notify/reducer-notify'
-import voteReducer from '../modules/Vote/reducer-vote'
+import walletReducer from '../modules/Wallet/reducer-wallet'
 
 const reducers = combineReducers({
     home: HomeReducer,
     notify: notifyReducer,
-    vote: voteReducer
+    wallet: walletReducer
 });
 
 const store = createStore(reducers);
