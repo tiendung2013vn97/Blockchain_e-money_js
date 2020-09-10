@@ -18,6 +18,7 @@ class HomeContainer extends Component {
     constructor(props) {
         super(props);
         this.getBalance = this.getBalance.bind(this);
+        this.getHistory=this.getHistory.bind(this);
 
         let user = localStorage.getItem("user")
         if (user) {
@@ -57,7 +58,7 @@ class HomeContainer extends Component {
                     return;
                 }
 
-
+                this.getHistory()
                 this.props.updateBalance(res.data.result);
 
             })
@@ -112,7 +113,7 @@ class HomeContainer extends Component {
                     this.props.pending(false)
                     return;
                 }
-
+                
                 this.props.pending(false)
                 this.props.showSuccessNotify("Send money successfully!")
             })

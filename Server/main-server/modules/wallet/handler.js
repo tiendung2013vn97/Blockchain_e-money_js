@@ -22,6 +22,7 @@ const sendMoney = async (userId, privateKey, money, to) => {
     if (isNaN(+money)) {
         return Promise.reject(`Money must is a positive number!`)
     }
+    money=+money
 
     if (calBalance(userId) < money) {
         return Promise.reject(`You don't have enough money to transfer!`)
@@ -44,8 +45,8 @@ const calBalance = (userId) => {
     blocks.forEach((block, index) => {
         if (!index) return
         let decodeData = jwt.decode(block.data.encodeData)
-        if (decodeData.user.to == userId && decodeData.type == "SEND_MONEY") {
-            balance += decodeData.money
+        if (decodeData.to == userId && decodeData.type == "SEND_MONEY") {
+            balance += (+decodeData.money)
         }
         if (decodeData.user.userId == userId && decodeData.type == "SEND_MONEY") {
             balance -= decodeData.money
